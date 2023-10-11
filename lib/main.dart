@@ -13,7 +13,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData.dark(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary:  const Color(0xff0E1020),
+        ),
+         scaffoldBackgroundColor: const Color( 0xff0E1020),
+        textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white,fontSize: 20))
+
 
       ),
       home: const MyHomePage(title: 'BMI CALCULATOR'),
@@ -42,14 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: const Center(
-        child: Text("Bmi Calc"),
+        child: Text("Bmi Calculator"),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print("presed");
-          },
-        child: const Icon(Icons.add),
-      ),
+
     );
   }
 }
