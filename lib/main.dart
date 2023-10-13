@@ -19,12 +19,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary:  const Color(0xff0E1020),
         ),
-         scaffoldBackgroundColor: const Color( 0xff0E1020),
+         scaffoldBackgroundColor: const Color(0xff0E1020),
         textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white,fontSize: 20))
 
 
       ),
-      home: const MyHomePage(title: 'BMI CALCULATOR'),
+      home:  const MyHomePage(title: 'BMI CALCULATOR'),
     );
   }
 }
