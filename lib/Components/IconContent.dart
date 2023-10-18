@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:bmi_calculator/Constants.dart';
 
 class ChildCard extends StatelessWidget{
   final IconData iconImg;
@@ -15,7 +15,7 @@ class ChildCard extends StatelessWidget{
         Icon(iconImg,
           color: Colors.white,size: 80,),
         const SizedBox(height: 15,),
-         Text(gender,style: const TextStyle(fontSize: 18),)
+         Text(gender,style: kLabelTextStyle)
       ],
     );
   }
