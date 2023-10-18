@@ -4,17 +4,13 @@ import '../Constants.dart';
 class Reusable extends StatelessWidget{
   final Color color;
   final Widget? childCard;
- /* final VoidCallback? onPress;*/
-  const Reusable({super.key, this.childCard, required this.color/*,  this.onPress*/}  );
+  const Reusable({super.key, this.childCard, required this.color}  );
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 1,
       child: GestureDetector(
-
-        /*onTap: onPress,*/
-
         child: Container(
           margin: const EdgeInsets.all(15),
           decoration: BoxDecoration(
@@ -28,33 +24,29 @@ class Reusable extends StatelessWidget{
   }
 
 }
-
-class ReusableWA extends StatefulWidget{
-
+class ReusableWA extends StatefulWidget {
   final String title;
-  final Function pressed;
-  int data;
-  ReusableWA({super.key, required this.title,required this.data,required this.pressed});
-
+  final int data;
+  const ReusableWA({Key? key, required this.title, required this.data,})
+      : super(key: key);
 
   @override
-  ReusableWAState createState() => ReusableWAState(data);
-
+  ReusableWAState createState() => ReusableWAState();
 }
 
-class ReusableWAState extends State<ReusableWA>{
-  int data;
+class ReusableWAState extends State<ReusableWA> {
+  late int _data;
+  late String _title;
 
-  ReusableWAState(this.data);
   @override
   void initState() {
     super.initState();
-    data = widget.data;
+    _data = widget.data;
+    _title = widget.title;
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,7 +56,7 @@ class ReusableWAState extends State<ReusableWA>{
           style: kLabelTextStyle,
         ),
         Text(
-          data.toString(),
+          _data.toString(),
           style: kLabelLarge,
         ),
         Row(
@@ -73,10 +65,16 @@ class ReusableWAState extends State<ReusableWA>{
             FloatingActionButton(
                 onPressed: () {
                   setState(() {
-                    data++;
+                    if (_title == "WEIGHT") {
+                      _data++;
+                      weight=_data;// Call the callback function with updated data
+                    } else {
+                      _data++;
+                      age=_data;// Call the callback function with updated data
+                    }
                   });
                 },
-                backgroundColor: Color(kInactiveCardcolour),
+                backgroundColor: const Color(kFABColour),
                 child: const Icon(Icons.add)),
             const SizedBox(
               width: 10,
@@ -84,16 +82,31 @@ class ReusableWAState extends State<ReusableWA>{
             FloatingActionButton(
                 onPressed: () {
                   setState(() {
-                    if(data>0) {
-                      data--;
+                    if (_title == "WEIGHT") {
+                      if (_data > 0) {
+                        _data--;
+                        weight=_data;// Call the callback function with updated data
+                      }
+                    } else {
+                      if (_data > 0) {
+                        _data--;
+                        age=_data;
+                      }
                     }
                   });
                 },
-                backgroundColor: Color(kInactiveCardcolour),
+                backgroundColor: const Color(kFABColour),
                 child: const Icon(Icons.remove))
           ],
         )
       ],
     );
+  }
+
+int getWeight(){
+    return weight;
+}
+  int getAge(){
+    return age;
   }
 }
