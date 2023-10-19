@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/Components/BMI%20CalculatorBrain.dart';
 import 'package:flutter/material.dart';
 import 'Components/IconContent.dart';
 import 'Components/Reusable.dart';
@@ -15,9 +16,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double _height = 120;
-  int weight = 30;
-  int age = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 crossAxisAlignment: CrossAxisAlignment.baseline,
                                 textBaseline: TextBaseline.alphabetic,
                                 children: [
-                                  Text(_height.toStringAsFixed(0),
+                                  Text(height.toStringAsFixed(0),
                                       style: kLabelLarge),
                                   const SizedBox(
                                     width: 5,
@@ -100,16 +98,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                       enabledThumbRadius: 15),
                                 ),
                                 child: Slider(
-                                  value: _height,
+                                  value: height,
                                   min: 60,
                                   max: 220,
                                   activeColor: Colors.white,
                                   inactiveColor: Colors.white30,
-                                  label: _height.round().toString(),
+                                  label: height.round().toString(),
                                   thumbColor: const Color(0xffeb1555),
                                   onChanged: (double newValue) {
                                     setState(() {
-                                      _height = newValue;
+                                      height = newValue;
                                     });
                                   },
                                 ),
@@ -216,16 +214,15 @@ class _MyHomePageState extends State<MyHomePage> {
             InkWell(
               onTap: () {
                 if (kSelectedGender != null) {
+                  BMICalcuatorBrain(height: height, weight: weight);
                  /* print(ReusableWAState().getWeight());*/
 
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => ResultPage(
-                          gender: kSelectedGender!,
-                          height: _height.round(),
-                          weight: weight,
-                          age: age,
+                         kBMI: (BMICalcuatorBrain(weight: weight,height: height).bmi()),
+
                         ),
                       ));
                 } else {

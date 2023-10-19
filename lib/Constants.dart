@@ -12,8 +12,10 @@ const kLabelSmall = TextStyle(fontWeight: FontWeight.w900, fontSize: 18);
 
 int kMaleCardColour = kInactiveCardColour;
 int kFemaleCardColour = kInactiveCardColour;
+double height = 120;
 int weight = 30;
 int age = 18;
+
 String normal ='NORMAL';
 String underWeight= 'UNDER WEIGHT';
 String overWeight = 'OVER WEIGHT';
