@@ -66,23 +66,6 @@ class ReusableWAState extends State<ReusableWA> {
                 onPressed: () {
                   setState(() {
                     if (_title == "WEIGHT") {
-                      _data++;
-                      weight=_data;// Call the callback function with updated data
-                    } else {
-                      _data++;
-                      age=_data;// Call the callback function with updated data
-                    }
-                  });
-                },
-                backgroundColor: const Color(kFABColour),
-                child: const Icon(Icons.add)),
-            const SizedBox(
-              width: 10,
-            ),
-            FloatingActionButton(
-                onPressed: () {
-                  setState(() {
-                    if (_title == "WEIGHT") {
                       if (_data > 0) {
                         _data--;
                         weight=_data;// Call the callback function with updated data
@@ -96,7 +79,27 @@ class ReusableWAState extends State<ReusableWA> {
                   });
                 },
                 backgroundColor: const Color(kFABColour),
-                child: const Icon(Icons.remove))
+                child: const Icon(Icons.remove)),
+
+            const SizedBox(
+              width: 10,
+            ),
+            FloatingActionButton(
+                onPressed: () {
+                  setState(() {
+                    if (_title == "WEIGHT") {
+                      _data++;
+                      weight=_data;// Call the callback function with updated data
+                    } else {
+                      _data++;
+                      age=_data;// Call the callback function with updated data
+                    }
+                  });
+                },
+                backgroundColor: const Color(kFABColour),
+                child: const Icon(Icons.add)),
+
+
           ],
         )
       ],

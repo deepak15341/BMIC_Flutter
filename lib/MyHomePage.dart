@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'Components/IconContent.dart';
 import 'Components/Reusable.dart';
 import 'Constants.dart';
+import 'ResultPage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -19,12 +21,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      appBar: AppBar(
+        child: Scaffold(appBar: AppBar(
         title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
+          ), body: Center(child: Column(
           children: [
             Expanded(
               flex: 1,
@@ -125,7 +124,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Reusable(
                       color: const Color(kActiveCardColour),
-                      childCard: ReusableWA(title: "WEIGHT", data: weight,),
+                      childCard: ReusableWA(
+                        title: "WEIGHT(kg)",
+                        data: weight,
+                      ),
                     ),
                     Reusable(
                       color: const Color(kActiveCardColour),
@@ -133,19 +135,38 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 )),
-            InkWell( onTap: () {
-              print(kSelectedGender);
-              print( _height.round().toString());
-              print(ReusableWAState().getWeight());
-              print(ReusableWAState().getAge());
-            },
+            InkWell(
+              onTap: () {
+                if (kSelectedGender != null) {
+
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultPage(
+                          gender: kSelectedGender!,
+                          height: _height.round(),
+                          weight: ReusableWAState().getWeight(),
+                          age: ReusableWAState().getAge(),
+                        ),
+                      ));
+                } else {
+                  Fluttertoast.showToast(
+                      msg: "Please Choose Gender",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      backgroundColor: Colors.grey);
+                }
+              },
               child: Container(
                 color: const Color(kBottomColour),
-                margin: const EdgeInsets.all( 10),
+                margin: const EdgeInsets.all(10),
                 width: double.infinity,
                 height: kBottomHeight,
-                child: const Center(child: Text("CALCULATE",style: kLabelTextStyle,)),
-
+                child: const Center(
+                    child: Text(
+                  "CALCULATE",
+                  style: kLabelTextLarge,
+                )),
               ),
             )
           ],
