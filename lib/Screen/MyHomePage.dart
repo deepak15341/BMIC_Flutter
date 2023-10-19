@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 child: Slider(
                                   value: height,
                                   min: 60,
-                                  max: 220,
+                                  max: 250,
                                   activeColor: Colors.white,
                                   inactiveColor: Colors.white30,
                                   label: height.round().toString(),
@@ -141,7 +141,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               FloatingActionButton(
                                   onPressed: () {
                                     setState(() {
-                                     weight--;
+                                      if(weight>3) {
+                                        weight--;
+                                      }
                                     });
                                   },
                                   backgroundColor: const Color(kFABColour),
@@ -153,7 +155,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               FloatingActionButton(
                                   onPressed: () {
                                     setState(() {
-                                    weight++;
+                                      if(weight<300) {
+                                        weight++;
+                                      }
                                     });
                                   },
                                   backgroundColor: const Color(kFABColour),
@@ -185,7 +189,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               FloatingActionButton(
                                   onPressed: () {
                                     setState(() {
-                                      age--;
+                                      if(age>0) {
+                                        age--;
+                                      }
                                     });
                                   },
                                   backgroundColor: const Color(kFABColour),
@@ -197,7 +203,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               FloatingActionButton(
                                   onPressed: () {
                                     setState(() {
-                                      age++;
+                                      if(age<120) {
+                                        age++;
+                                      }
                                     });
                                   },
                                   backgroundColor: const Color(kFABColour),
