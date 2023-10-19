@@ -1,8 +1,8 @@
-import 'package:bmi_calculator/Components/BMI%20CalculatorBrain.dart';
+import 'package:bmi_calculator/BMI%20CalculatorBrain.dart';
 import 'package:flutter/material.dart';
-import 'Components/IconContent.dart';
-import 'Components/Reusable.dart';
-import 'Constants.dart';
+import '../Components/IconContent.dart';
+import '../Components/Reusable.dart';
+import '../Constants.dart';
 import 'ResultPage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 

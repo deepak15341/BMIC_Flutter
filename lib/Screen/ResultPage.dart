@@ -1,6 +1,6 @@
-import 'package:bmi_calculator/Components/BMI%20CalculatorBrain.dart';
+import 'package:bmi_calculator/BMI%20CalculatorBrain.dart';
 import 'package:flutter/material.dart';
-import 'Constants.dart';
+import '../Constants.dart';
 
 class ResultPage extends StatefulWidget {
    const ResultPage(
@@ -22,7 +22,7 @@ class MyResultPage extends State<ResultPage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text(title))),
+      appBar: AppBar(title: Text(title)),
       body:  Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -39,11 +39,12 @@ class MyResultPage extends State<ResultPage> {
                   width: double.maxFinite,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(bmiCalculatorBrain.getLabel(label: 'labelTag'),style: kLabelTextMedium),
                       Text((widget.kBMI).toStringAsFixed(2), style: kLabelLarge),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(15.0),
                         child: Text(bmiCalculatorBrain.getLabel(label: 'labelDescription'), style: kLabelSmall),
                       ),
                     ],

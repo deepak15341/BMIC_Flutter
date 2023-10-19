@@ -1,4 +1,4 @@
-import "../Constants.dart";
+import 'Constants.dart';
 class BMICalcuatorBrain{
   double? height;
   int? weight;
