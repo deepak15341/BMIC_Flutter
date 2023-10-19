@@ -21,7 +21,7 @@ String underWeight= 'UNDER WEIGHT';
 String overWeight = 'OVER WEIGHT';
 String title = 'BMI CALCULATOR';
 const kLabelTextLarge = TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0);
-const kLabelTextMedium = TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0,color: Colors.green);
+const kLabelTextMedium = TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0,color: Color(0xff24d876));
 
 enum SelectGender { male, female }
 const kFABColour = 0xff4C4F5E;
