@@ -29,7 +29,7 @@ class MyResultPage extends State<ResultPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
-              padding: EdgeInsets.only(bottom: 16.0),
+              padding: EdgeInsets.only(bottom: 25.0,left: 10.0),
               child: Text("Your Result",style: kLabelTextLarge,),
             ),
             Expanded(
