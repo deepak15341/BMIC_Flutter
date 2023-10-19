@@ -18,6 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double _height = 120;
   int weight = 30;
   int age = 18;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -124,20 +125,98 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Reusable(
                       color: const Color(kActiveCardColour),
-                      childCard: ReusableWA(
-                        title: "WEIGHT(kg)",
-                        data: weight,
+                      childCard:Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Text(
+                           'WEIGHT',
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            weight.toString(),
+                            style: kLabelLarge,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FloatingActionButton(
+                                  onPressed: () {
+                                    setState(() {
+                                     weight--;
+                                    });
+                                  },
+                                  backgroundColor: const Color(kFABColour),
+                                  child: const Icon(Icons.remove)),
+
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              FloatingActionButton(
+                                  onPressed: () {
+                                    setState(() {
+                                    weight++;
+                                    });
+                                  },
+                                  backgroundColor: const Color(kFABColour),
+                                  child: const Icon(Icons.add)),
+
+
+                            ],
+                          )
+                        ],
                       ),
                     ),
                     Reusable(
                       color: const Color(kActiveCardColour),
-                      childCard: ReusableWA(title: "AGE", data: age),
+                      childCard:Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'AGE',
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            age.toString(),
+                            style: kLabelLarge,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FloatingActionButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      age--;
+                                    });
+                                  },
+                                  backgroundColor: const Color(kFABColour),
+                                  child: const Icon(Icons.remove)),
+
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              FloatingActionButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      age++;
+                                    });
+                                  },
+                                  backgroundColor: const Color(kFABColour),
+                                  child: const Icon(Icons.add)),
+
+
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 )),
             InkWell(
               onTap: () {
                 if (kSelectedGender != null) {
+                 /* print(ReusableWAState().getWeight());*/
 
                   Navigator.push(
                       context,
@@ -145,8 +224,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         builder: (context) => ResultPage(
                           gender: kSelectedGender!,
                           height: _height.round(),
-                          weight: ReusableWAState().getWeight(),
-                          age: ReusableWAState().getAge(),
+                          weight: weight,
+                          age: age,
                         ),
                       ));
                 } else {

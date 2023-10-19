@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'Constants.dart';
 
 class ResultPage extends StatefulWidget {
-  const ResultPage(
+   ResultPage(
       {super.key,
       required this.gender,
       required this.height,
@@ -10,8 +10,8 @@ class ResultPage extends StatefulWidget {
       required this.age});
   final SelectGender gender;
   final int height;
-  final int weight;
-  final int age;
+   int weight;
+   int age;
   @override
   State<StatefulWidget> createState() {
     return MyResultPage();
