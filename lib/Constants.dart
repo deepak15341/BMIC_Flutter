@@ -23,5 +23,5 @@ String title = 'BMI CALCULATOR';
 const kLabelTextLarge = TextStyle(fontWeight: FontWeight.bold, fontSize: 35.0);
 const kLabelTextMedium = TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0,color: Color(0xff24d876));
 
-enum SelectGender { male, female }
+enum SelectGender { male, female,Na }
 const kFABColour = 0xff4C4F5E;
